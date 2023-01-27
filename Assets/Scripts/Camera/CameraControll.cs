@@ -9,6 +9,7 @@ public class CameraControll : MonoBehaviour
 
     private void Start()
     {
+        player = LevelManager.Instance.GetPlayerInstance();
         currentPosition = transform.position;
     }
 

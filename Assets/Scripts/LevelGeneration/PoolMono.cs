@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -53,11 +52,11 @@ public class PoolMono<T> where T : MonoBehaviour
         return false;
     }
 
-    public T GetFreeElement()
+    public T GetFreeElement(bool vision)
     {
         if(this.HasFreeElement(out var element))
         {
-            element.gameObject.SetActive(true);
+            element.gameObject.SetActive(vision);
             return element;
         }
 

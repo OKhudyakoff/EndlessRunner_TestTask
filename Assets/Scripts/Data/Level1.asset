@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145d4d59b45444d42851b17e0592044e, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 6116341528734501226, guid: 22ae01fe44ff95d45a3412f67fa6d419, type: 3}
+  difficulty: {fileID: 11400000, guid: 3411295208f6bd749b058581ec33b2bd, type: 2}
+  difficultyNumber: 0
+  maxScore: 0
+  ChunkCount: 8
+  ChunkLength: 6
+  ChunkBeforeSpawObstacles: 2
+  attempts: 0

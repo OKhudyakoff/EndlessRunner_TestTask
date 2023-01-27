@@ -1,44 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChunkSpawner : MonoBehaviour
 {
-    public static ChunkSpawner Instance { get; private set; }
-
     [SerializeField]
     private Chunk chunkPrefab;
     private ChunkPoolQueue chunkPool;
 
     [SerializeField]
-    private Obstacle obstaclePrefab;
-    private PoolMono<Obstacle> poolObstacle;
-
-    [SerializeField]
-    private int chunkCount, obstacleCount, length, chunkBeforeSpawnObstacle, currentChunkCount;
+    private int chunkCount, length, chunkBeforeSpawnObstacle, currentChunkCount;
 
     private Vector2 lastSpawnPosition;
 
-    private void Awake()
+    public void Init(LevelData levelData)
     {
-        if(Instance != this && Instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
+        this.chunkCount = levelData.ChunkCount;
+        this.length = levelData.ChunkLength;
+        this.chunkBeforeSpawnObstacle = levelData.ChunkBeforeSpawObstacles;
+        CreateStartChunks();
     }
 
-    private void Start()
+    private void CreateStartChunks()
     {
         //Создаем стартовые чанки
         chunkPool = GetComponent<ChunkPoolQueue>();
-        chunkPool.Init(chunkPrefab, chunkCount, length, this.transform);
+        chunkPool.Init(chunkPrefab, chunkCount, length, this.transform, this);
         lastSpawnPosition = chunkPool.lastSpawnPosition;
-        //Создаем пулл препятствий
-        poolObstacle = new PoolMono<Obstacle>(obstaclePrefab, obstacleCount, this.transform, true);
+
         currentChunkCount = chunkBeforeSpawnObstacle;
     }
 
@@ -46,14 +33,18 @@ public class ChunkSpawner : MonoBehaviour
     {
         var newChunk = chunkPool.GetFreeElement();
         newChunk.transform.position = lastSpawnPosition;
-        lastSpawnPosition = newChunk.spawnPosition.position;
-        currentChunkCount += 1;
+        lastSpawnPosition = newChunk.GetSpawnPosition();
 
         if(currentChunkCount >= chunkBeforeSpawnObstacle)
         {
-            Obstacle newObstacle = poolObstacle.GetFreeElement();
             int randPositionY = Random.Range(-3, 3);
-            newObstacle.transform.position = new Vector3(newChunk.transform.position.x, randPositionY, 0);
+            newChunk.ShowObstacle(true, randPositionY);
+            currentChunkCount = 0;
+        }
+        else
+        {
+            newChunk.ShowObstacle(false);
+            currentChunkCount += 1;
         }
     }
 }
