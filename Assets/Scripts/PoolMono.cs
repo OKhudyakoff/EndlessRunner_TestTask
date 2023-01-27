@@ -11,10 +11,11 @@ public class PoolMono<T> where T : MonoBehaviour
 
     private List<T> pool;
 
-    public PoolMono(T prefab, int count, Transform container)
+    public PoolMono(T prefab, int count, Transform container, bool autoExpand = false)
     {
         this.prefab = prefab;
         this.container = container;
+        this.autoExpand = autoExpand;
 
         this.CreatePool(count);
     }
