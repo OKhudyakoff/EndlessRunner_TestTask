@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerInputHandler playerInput;
     [SerializeField]
-    private float jumpForce, fallForce, runSpeed, multiplier;
+    private float jumpForce, fallForce, runSpeed, multiplier, aceclerationTime;
 
     private Vector2 playerVelocity;
     private bool freeze = false;
@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        InvokeRepeating("AccelerateSpeed", aceclerationTime, aceclerationTime);
     }
 
 
@@ -36,13 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         multiplier = difficulty.GetMultiplier();
         runSpeed = difficulty.GetPlayerStartSpeed();
-    }
-
-    public void ChangeSpeed()
-    {
-        /*jumpForce *= multiplier;
-        fallForce *= multiplier;*/
-        runSpeed *= multiplier;
+        aceclerationTime = difficulty.GetAccelerationTime();
     }
 
     public void Freeze()
@@ -50,5 +45,10 @@ public class PlayerController : MonoBehaviour
         freeze = true;
         playerRigidbody.velocity = Vector2.zero;
         playerRigidbody.gravityScale = 0;
+    }
+
+    private void AccelerateSpeed()
+    {
+        runSpeed *= multiplier;
     }
 }

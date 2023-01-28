@@ -1347,9 +1347,9 @@ MonoBehaviour:
   scoreText: {fileID: 324249133}
   levelData: {fileID: 11400000, guid: 546dd28e25053e54c9d47bca5aadd02f, type: 2}
   difficultiesList:
-  - {fileID: 11400000, guid: 3411295208f6bd749b058581ec33b2bd, type: 2}
-  - {fileID: 11400000, guid: d5540663157065b4282df49e81c74132, type: 2}
-  - {fileID: 11400000, guid: 6d6007f077112e24386947d913b6687e, type: 2}
+  - {fileID: 11400000, guid: a3d809fa84349a347b43ca2f0d068575, type: 2}
+  - {fileID: 11400000, guid: be5853ceec0fbc242bfd90171efc7027, type: 2}
+  - {fileID: 11400000, guid: dad3d15fb96bd44479af2c6f042c7166, type: 2}
 --- !u!1 &1497239946
 GameObject:
   m_ObjectHideFlags: 0

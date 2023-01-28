@@ -350,6 +350,8 @@ GameObject:
   - component: {fileID: 519472206}
   - component: {fileID: 519472205}
   - component: {fileID: 519472204}
+  - component: {fileID: 519472208}
+  - component: {fileID: 519472207}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -443,6 +445,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519472202}
   m_CullTransparentMesh: 1
+--- !u!114 &519472207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519472202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05965faf9a0c5784397ae49cd48a251f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &519472208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519472202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f3054b973fe2344a5f8353306671dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulityChoice: {fileID: 1255850660}
+  levelData: {fileID: 11400000, guid: 546dd28e25053e54c9d47bca5aadd02f, type: 2}
+  difficultiesList:
+  - {fileID: 11400000, guid: a3d809fa84349a347b43ca2f0d068575, type: 2}
+  - {fileID: 11400000, guid: be5853ceec0fbc242bfd90171efc7027, type: 2}
+  - {fileID: 11400000, guid: dad3d15fb96bd44479af2c6f042c7166, type: 2}
 --- !u!1 &570382378
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,69 +838,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996455464}
   m_CullTransparentMesh: 1
---- !u!1 &1074732664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1074732666}
-  - component: {fileID: 1074732665}
-  - component: {fileID: 1074732667}
-  m_Layer: 0
-  m_Name: MenuManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1074732665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074732664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17f3054b973fe2344a5f8353306671dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  difficulityChoice: {fileID: 1255850660}
-  levelData: {fileID: 11400000, guid: 546dd28e25053e54c9d47bca5aadd02f, type: 2}
-  difficultiesList:
-  - {fileID: 11400000, guid: 3411295208f6bd749b058581ec33b2bd, type: 2}
-  - {fileID: 11400000, guid: d5540663157065b4282df49e81c74132, type: 2}
-  - {fileID: 11400000, guid: 6d6007f077112e24386947d913b6687e, type: 2}
---- !u!4 &1074732666
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074732664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1074732667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074732664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05965faf9a0c5784397ae49cd48a251f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1161086960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1013,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1074732665}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: DropdownDifficulityChanged
         m_Mode: 0
@@ -1314,8 +1283,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1074732667}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+      - m_Target: {fileID: 519472207}
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:

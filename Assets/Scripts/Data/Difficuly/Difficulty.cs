@@ -9,7 +9,10 @@ public class Difficulty : ScriptableObject
     private float multiplier;
     [SerializeField]
     private float playerStartSpeed;
+    [SerializeField]
+    private float accelerationTime;
 
     public float GetMultiplier() => multiplier;
     public float GetPlayerStartSpeed() => playerStartSpeed;
+    public float GetAccelerationTime() => accelerationTime;
 }

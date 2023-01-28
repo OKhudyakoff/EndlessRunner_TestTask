@@ -8,23 +8,21 @@ public class Chunk : MonoBehaviour
     private SpriteRenderer line1, line2;
     [SerializeField]
     private Transform obstacle;
-    private ChunkSpawner chunkSpawner;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            chunkSpawner.SpawnNewChunk();
+            LevelManager.Instance.GetChunkSpawner().SpawnNewChunk();
         }
     }
 
     public Vector2 GetSpawnPosition() => this.spawnPosition.position;
 
-    public void Init(int length, ChunkSpawner chunkSpawner)
+    public void Init(int length)
     {
         line1.size = new Vector2(length, 1);
         line2.size = new Vector2(length, 1);
-        this.chunkSpawner = chunkSpawner;
         obstacle.gameObject.SetActive(false);
         spawnPosition.position =  new Vector3(this.spawnPosition.position.x + length, 0, 0);
     }

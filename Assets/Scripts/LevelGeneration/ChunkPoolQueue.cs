@@ -11,14 +11,11 @@ public class ChunkPoolQueue: MonoBehaviour
 
     private Queue<Chunk> pool;
 
-    private ChunkSpawner chunkSpawner;
-
-    public void Init(Chunk prefab, int count, int length, Transform container, ChunkSpawner chunkSpawner)
+    public void Init(Chunk prefab, int count, int length, Transform container)
     {
         this.prefab = prefab;
         this.container = container;
         lastSpawnPosition = new Vector2(-1 * (count * length) / 2, 0);
-        this.chunkSpawner = chunkSpawner;
 
         this.CreatePool(count, length);
     }
@@ -36,7 +33,7 @@ public class ChunkPoolQueue: MonoBehaviour
     private Chunk CreateObject(int length,bool isActivityDefault = true)
     {
         Chunk createdObject = Transform.Instantiate(this.prefab, lastSpawnPosition, Quaternion.identity, this.container);
-        createdObject.Init(length, chunkSpawner); //Задаем размер чанка
+        createdObject.Init(length); //Задаем размер чанка
         lastSpawnPosition = createdObject.GetSpawnPosition(); //Запоминаем позицию для следующего спавна
         createdObject.gameObject.SetActive(isActivityDefault);
         this.pool.Enqueue(createdObject);

@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
+    [Header("Data")]
     [SerializeField]
     private LevelData levelData;
     [SerializeField]
     private Difficulty difficulty;
-
+    [Header("Prefabs")]
     private PlayerController player;
     [SerializeField]
     private CameraControll playerCameraPrefab;
+    [Header("ObjectsOnScene")]
     [SerializeField]
     private ChunkSpawner chunkSpawner;
     [SerializeField]
@@ -51,23 +51,19 @@ public class LevelManager : MonoBehaviour
         this.player.Init(difficulty);
         Instantiate(playerCameraPrefab);
         chunkSpawner.Init(levelData);
-        InvokeRepeating("Accelerate", 15f, 15f);
     }
 
     public Transform GetPlayerInstance() => player.transform;
 
     public LevelData GetLevelData() => levelData;
 
+    public ChunkSpawner GetChunkSpawner() => chunkSpawner;
+
     public void FinishGame()
     {
         player.Freeze();
-        levelData.NewScore(currentScore);
+        levelData.SaveMaxScore(currentScore);
         finishMenuUI.gameObject.SetActive(true);
         finishMenuUI.ShowInfo(currentScore);
-    }
-
-    private void Accelerate()
-    {
-        player.ChangeSpeed();
     }
 }

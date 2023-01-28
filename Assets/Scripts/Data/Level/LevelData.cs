@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LevelData", menuName = "Data/LevelData")]
@@ -8,9 +6,8 @@ public class LevelData : ScriptableObject
     public PlayerController PlayerPrefab;
     public Difficulty difficulty;
     public int difficultyNumber = 0;
-    public float maxScore = 0;
+    public int maxScore = 0;
     public int ChunkCount, ChunkLength, ChunkBeforeSpawObstacles;
-    [SerializeField]
     private int attempts = 0;
 
     public void NewAttempt()
@@ -20,9 +17,13 @@ public class LevelData : ScriptableObject
         PlayerPrefs.SetInt("attempts", attempts);
     }
 
-    public void NewScore(float newScore)
+    public void SaveMaxScore(int newScore)
     {
-        if (newScore > maxScore) maxScore = newScore;
+        if (newScore > maxScore)
+        {
+            maxScore = newScore;
+            PlayerPrefs.SetInt("maxScore", maxScore);
+        }
     }
 
     public int GetAtttempts()
