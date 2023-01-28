@@ -5,6 +5,6 @@ public class SceneSwitcher : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("GameScene");
     }
 }

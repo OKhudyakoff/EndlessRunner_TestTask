@@ -48,6 +48,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5068fcdb-75b7-456d-8d24-ba8560019f56"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
