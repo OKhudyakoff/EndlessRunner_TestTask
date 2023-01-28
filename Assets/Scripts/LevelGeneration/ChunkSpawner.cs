@@ -23,7 +23,7 @@ public class ChunkSpawner : MonoBehaviour
     {
         //Создаем стартовые чанки
         chunkPool = GetComponent<ChunkPoolQueue>();
-        chunkPool.Init(chunkPrefab, chunkCount, length, this.transform, this);
+        chunkPool.Init(chunkPrefab, chunkCount, length, this.transform);
         lastSpawnPosition = chunkPool.lastSpawnPosition;
 
         currentChunkCount = chunkBeforeSpawnObstacle;

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -31,7 +30,6 @@ public class FinishMenuUI : MonoBehaviour
 
     public void ShowInfo(int score)
     {
-        PlayerPrefs.SetInt("score", score);
         attemptsText.SetText("Количество попыток: " + levelData.GetAtttempts());
         scoreText.SetText("Текущий рекорд: " + score);
     }
