@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class LevelManager : MonoBehaviour
     private ChunkSpawner chunkSpawner;
     [SerializeField]
     private FinishMenuUI finishMenuUI;
+    [SerializeField]
+    private TMP_Text currentScoreText;
 
     private int currentScore;
 
@@ -40,14 +43,17 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         currentScore = (int)player.transform.position.x;
+        currentScoreText.SetText(currentScore.ToString());
     }
 
     public void StartGame()
     {
+        Application.targetFrameRate = 60;
+
         finishMenuUI.gameObject.SetActive(false);
         levelData.NewAttempt();
-        difficulty = levelData.difficulty;
-        this.player = Instantiate(levelData.PlayerPrefab, Vector3.zero, Quaternion.identity);
+        difficulty = levelData.GetDifficulty();
+        this.player = Instantiate(levelData.GetPlayerPrefab(), Vector3.zero, Quaternion.identity);
         this.player.Init(difficulty);
         Instantiate(playerCameraPrefab);
         chunkSpawner.Init(levelData);

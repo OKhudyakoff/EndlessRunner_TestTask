@@ -102,10 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 6116341528734501227}
-  jumpForce: 5
-  fallForce: 5
+  jumpForce: 9
+  fallForce: 9
   runSpeed: 4
   multiplier: 0
+  aceclerationTime: 0
 --- !u!114 &6116341528734501227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5064d91ef27332c408ca781387bdfc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpInput: 0
 --- !u!70 &6116341528734501232
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

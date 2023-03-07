@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145d4d59b45444d42851b17e0592044e, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 6116341528734501226, guid: 22ae01fe44ff95d45a3412f67fa6d419, type: 3}
-  difficulty: {fileID: 11400000, guid: 3411295208f6bd749b058581ec33b2bd, type: 2}
-  difficultyNumber: 0
-  maxScore: 0
-  ChunkCount: 8
-  ChunkLength: 6
-  ChunkBeforeSpawObstacles: 2
-  attempts: 0
+  playerPrefab: {fileID: 6116341528734501226, guid: 22ae01fe44ff95d45a3412f67fa6d419, type: 3}
+  difficulty: {fileID: 11400000, guid: be5853ceec0fbc242bfd90171efc7027, type: 2}
+  chunkCount: 6
+  chunkLength: 6
+  chunkBeforeSpawnObstacles: 2
+  difficultyNumber: 1

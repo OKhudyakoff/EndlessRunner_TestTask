@@ -15,13 +15,13 @@ public class MainMenuUI : MonoBehaviour
 
     private void Start()
     {
-        levelData.difficulty = difficultiesList[levelData.difficultyNumber];
+        levelData.SetDifficulty(difficultiesList[levelData.difficultyNumber]);
         difficulityChoice.value = levelData.difficultyNumber;
     }
 
     public void DropdownDifficulityChanged(int index)
     {
         levelData.difficultyNumber = index;
-        levelData.difficulty = difficultiesList[index];
+        levelData.SetDifficulty(difficultiesList[index]);
     }
 }

@@ -8,7 +8,7 @@ public class FinishMenuUI : MonoBehaviour
     private TMP_Dropdown difficulityChoice;
 
     [SerializeField]
-    private TMP_Text attemptsText, scoreText;
+    private TMP_Text attemptsText, scoreText, maxScoreText;
 
     [SerializeField]
     private LevelData levelData;
@@ -18,19 +18,20 @@ public class FinishMenuUI : MonoBehaviour
 
     private void Start()
     {
-        levelData.difficulty = difficultiesList[levelData.difficultyNumber];
+        levelData.SetDifficulty(difficultiesList[levelData.difficultyNumber]);
         difficulityChoice.value = levelData.difficultyNumber;
     }
 
     public void DropdownDifficulityChanged(int index)
     {
         levelData.difficultyNumber = index;
-        levelData.difficulty = difficultiesList[index];
+        levelData.SetDifficulty(difficultiesList[index]);
     }
 
     public void ShowInfo(int score)
     {
         attemptsText.SetText("Количество попыток: " + levelData.GetAtttempts());
         scoreText.SetText("Текущий рекорд: " + score);
+        maxScoreText.SetText("Максимальный рекорд: " + levelData.GetMaxScore());
     }
 }

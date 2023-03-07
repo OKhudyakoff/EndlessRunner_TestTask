@@ -13,9 +13,9 @@ public class ChunkSpawner : MonoBehaviour
 
     public void Init(LevelData levelData)
     {
-        this.chunkCount = levelData.ChunkCount;
-        this.length = levelData.ChunkLength;
-        this.chunkBeforeSpawnObstacle = levelData.ChunkBeforeSpawObstacles;
+        this.chunkCount = levelData.GetChunkCount();
+        this.length = levelData.GetChunkLength();
+        this.chunkBeforeSpawnObstacle = levelData.GetChunkBeforeSpawnObstacles();
         CreateStartChunks();
     }
 
